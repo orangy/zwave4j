@@ -22,6 +22,8 @@
 package org.zwave4j
 
 import java.util.concurrent.atomic.AtomicReference
+import kotlin.platform.platformStatic
+import java.util.ArrayList
 
 /**
  * @author zagumennikov
@@ -36,48 +38,76 @@ public class ValueId(
         public val type: ValueType
 ) {
 
-    public fun getValue(): Any? {
+    val units: String get() = manager.getValueUnits(this)
+    val label: String get() = manager.getValueLabel(this)
+
+    val value: Any? get() {
         when (type) {
             ValueType.BOOL -> {
-                val b = AtomicReference<Boolean>()
-                Manager.get().getValueAsBool(this, b)
-                return b.get()
+                val r = AtomicReference<Boolean>()
+                manager.getValueAsBool(this, r)
+                return r.get()
             }
             ValueType.BYTE -> {
-                val bb = AtomicReference<Short>()
-                Manager.get().getValueAsByte(this, bb)
-                return bb.get()
+                val r = AtomicReference<Short>()
+                manager.getValueAsByte(this, r)
+                return r.get()
             }
             ValueType.DECIMAL -> {
-                val f = AtomicReference<Float>()
-                Manager.get().getValueAsFloat(this, f)
-                return f.get()
+                val r = AtomicReference<Float>()
+                manager.getValueAsFloat(this, r)
+                return r.get()
             }
             ValueType.INT -> {
-                val i = AtomicReference<Int>()
-                Manager.get().getValueAsInt(this, i)
-                return i.get()
+                val r = AtomicReference<Int>()
+                manager.getValueAsInt(this, r)
+                return r.get()
             }
-            ValueType.LIST -> return null
-            ValueType.SCHEDULE -> return null
+            ValueType.LIST -> {
+                val r = AtomicReference<String>()
+                manager.getValueListSelectionString(this, r)
+                return r
+            }
+            ValueType.SCHEDULE -> {
+                return null
+            }
             ValueType.SHORT -> {
-                val s = AtomicReference<Short>()
-                Manager.get().getValueAsShort(this, s)
-                return s.get()
+                val r = AtomicReference<Short>()
+                manager.getValueAsShort(this, r)
+                return r.get()
             }
             ValueType.STRING -> {
-                val ss = AtomicReference<String>()
-                Manager.get().getValueAsString(this, ss)
-                return ss.get()
+                val r = AtomicReference<String>()
+                manager.getValueAsString(this, r)
+                return r.get()
             }
-            ValueType.BUTTON -> return null
+            ValueType.BUTTON -> {
+                return null
+            }
             ValueType.RAW -> {
-                val sss = AtomicReference<ShortArray>()
-                Manager.get().getValueAsRaw(this, sss)
-                return sss.get()
+                val r = AtomicReference<ShortArray>()
+                manager.getValueAsRaw(this, r)
+                return r.get()
             }
             else -> return null
         }
     }
 
+    class object {
+        val manager: Manager get() = Manager.get()!!
+    }
+}
+
+object ValueIdFactory {
+    platformStatic
+    fun create(
+            homeId: Long,
+            nodeId: Short,
+            genre: ValueGenre,
+            commandClassId: Short,
+            instance: Short,
+            index: Short,
+            type: ValueType): ValueId {
+        return ValueId(homeId, nodeId, genre, commandClassId, instance, index, type)
+    }
 }

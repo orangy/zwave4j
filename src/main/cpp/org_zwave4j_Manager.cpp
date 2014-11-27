@@ -329,10 +329,10 @@ jobject getControllerError(JNIEnv * env, OpenZWave::Driver::ControllerError ozwC
 
 jobject getValueId(JNIEnv * env, OpenZWave::ValueID const * ozwValueId)
 {
-	jclass clazz = findClass(env, "org/zwave4j/ValueId");
-	return env->NewObject(
+	jclass clazz = findClass(env, "org/zwave4j/ValueIdFactory");
+	return env->CallStaticObjectMethod(
 		clazz,
-		env->GetMethodID(clazz, "<init>", "(JSLorg/zwave4j/ValueGenre;SSSLorg/zwave4j/ValueType;)V"),
+		env->GetStaticMethodID(clazz, "create", "(JSLorg/zwave4j/ValueGenre;SSSLorg/zwave4j/ValueType;)Lorg/zwave4j/ValueId;"),
 		getJlong(ozwValueId->GetHomeId()),
 		getJshort(ozwValueId->GetNodeId()),
 		getValueGenre(env, ozwValueId->GetGenre()),

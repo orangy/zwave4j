@@ -19,23 +19,9 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
 
 /**
  * @author zagumennikov
  */
-public enum ControllerError {
-    NONE,
-    BUTTON_NOT_FOUND,
-    NODE_NOT_FOUND,
-    NOT_BRIDGE,
-    NOT_SUC,
-    NOT_SECONDARY,
-    NOT_PRIMARY,
-    IS_PRIMARY,
-    NOT_FOUND,
-    BUSY,
-    FAILED,
-    DISABLED,
-    OVERFLOW
-}
+public class ValueId(public val homeId: Long, public val nodeId: Short, public val genre: ValueGenre, public val commandClassId: Short, public val instance: Short, public val index: Short, public val type: ValueType)

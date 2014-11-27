@@ -19,13 +19,14 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
 
 /**
  * @author zagumennikov
  */
-public enum ControllerInterface {
-    UNKNOWN,
-    SERIAL,
-    HID
+public enum class OptionType {
+    INVALID
+    BOOL
+    INT
+    STRING
 }

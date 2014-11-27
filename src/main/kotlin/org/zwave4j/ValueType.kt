@@ -19,32 +19,20 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
 
 /**
  * @author zagumennikov
  */
-public class CommandClassData {
-
-    private long commandClassId;
-    private long sentCnt;
-    private long receivedCnt;
-
-    public CommandClassData(long commandClassId, long sentCnt, long receivedCnt) {
-        this.commandClassId = commandClassId;
-        this.sentCnt = sentCnt;
-        this.receivedCnt = receivedCnt;
-    }
-
-    public long getCommandClassId() {
-        return commandClassId;
-    }
-
-    public long getSentCnt() {
-        return sentCnt;
-    }
-
-    public long getReceivedCnt() {
-        return receivedCnt;
-    }
+public enum class ValueType {
+    BOOL
+    BYTE
+    DECIMAL
+    INT
+    LIST
+    SCHEDULE
+    SHORT
+    STRING
+    BUTTON
+    RAW
 }

@@ -19,12 +19,38 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
 
 /**
  * @author zagumennikov
  */
-public abstract class ZWave4j {
-
-    public static final String LIBRARY_NAME = "zwave4j";
+public enum class NotificationType {
+    VALUE_ADDED
+    VALUE_REMOVED
+    VALUE_CHANGED
+    VALUE_REFRESHED
+    GROUP
+    NODE_NEW
+    NODE_ADDED
+    NODE_REMOVED
+    NODE_PROTOCOL_INFO
+    NODE_NAMING
+    NODE_EVENT
+    POLLING_DISABLED
+    POLLING_ENABLED
+    SCENE_EVENT
+    CREATE_BUTTON
+    DELETE_BUTTON
+    BUTTON_ON
+    BUTTON_OFF
+    DRIVER_READY
+    DRIVER_FAILED
+    DRIVER_RESET
+    DRIVER_REMOVED
+    ESSENTIAL_NODE_QUERIES_COMPLETE
+    NODE_QUERIES_COMPLETE
+    AWAKE_NODES_QUERIED
+    ALL_NODES_QUERIED_SOME_DEAD
+    ALL_NODES_QUERIED
+    NOTIFICATION
 }

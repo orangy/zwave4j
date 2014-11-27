@@ -19,21 +19,15 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
 
 /**
  * @author zagumennikov
  */
-public enum ControllerState {
-    NORMAL,
-    STARTING,
-    CANCEL,
-    ERROR,
-    WAITING,
-    SLEEPING,
-    IN_PROGRESS,
-    COMPLETED,
-    FAILED,
-    NODE_OK,
-    NODE_FAILED
+public enum class ValueGenre {
+    BASIC
+    USER
+    CONFIG
+    SYSTEM
+    COUNT
 }

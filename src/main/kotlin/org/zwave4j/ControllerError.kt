@@ -19,27 +19,23 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
 
 /**
  * @author zagumennikov
  */
-public enum ControllerCommand {
-    NONE,
-    ADD_DEVICE,
-    CREATE_NEW_PRIMARY,
-    RECEIVE_CONFIGURATION,
-    REMOVE_DEVICE,
-    REMOVE_FAILED_NODE,
-    HAS_NODE_FAILED,
-    REPLACE_FAILED_NODE,
-    TRANSFER_PRIMARY_ROLE,
-    REQUEST_NETWORK_UPDATE,
-    REQUEST_NODE_NEIGHBOR_UPDATE,
-    ASSIGN_RETURN_ROUTE,
-    DELETE_ALL_RETURN_ROUTES,
-    SEND_NODE_INFORMATION,
-    REPLICATION_SEND,
-    CREATE_BUTTON,
-    DELETE_BUTTON
+public enum class ControllerError {
+    NONE
+    BUTTON_NOT_FOUND
+    NODE_NOT_FOUND
+    NOT_BRIDGE
+    NOT_SUC
+    NOT_SECONDARY
+    NOT_PRIMARY
+    IS_PRIMARY
+    NOT_FOUND
+    BUSY
+    FAILED
+    DISABLED
+    OVERFLOW
 }

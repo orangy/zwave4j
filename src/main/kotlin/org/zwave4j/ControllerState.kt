@@ -19,20 +19,21 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
 
 /**
  * @author zagumennikov
  */
-public enum ValueType {
-    BOOL,
-    BYTE,
-    DECIMAL,
-    INT,
-    LIST,
-    SCHEDULE,
-    SHORT,
-    STRING,
-    BUTTON,
-    RAW
+public enum class ControllerState {
+    NORMAL
+    STARTING
+    CANCEL
+    ERROR
+    WAITING
+    SLEEPING
+    IN_PROGRESS
+    COMPLETED
+    FAILED
+    NODE_OK
+    NODE_FAILED
 }

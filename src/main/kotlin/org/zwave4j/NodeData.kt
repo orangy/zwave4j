@@ -19,38 +19,28 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
+
+import java.util.ArrayList
 
 /**
  * @author zagumennikov
  */
-public enum NotificationType {
-    VALUE_ADDED,
-    VALUE_REMOVED,
-    VALUE_CHANGED,
-    VALUE_REFRESHED,
-    GROUP,
-    NODE_NEW,
-    NODE_ADDED,
-    NODE_REMOVED,
-    NODE_PROTOCOL_INFO,
-    NODE_NAMING,
-    NODE_EVENT,
-    POLLING_DISABLED,
-    POLLING_ENABLED,
-    SCENE_EVENT,
-    CREATE_BUTTON,
-    DELETE_BUTTON,
-    BUTTON_ON,
-    BUTTON_OFF,
-    DRIVER_READY,
-    DRIVER_FAILED,
-    DRIVER_RESET,
-    DRIVER_REMOVED,
-    ESSENTIAL_NODE_QUERIES_COMPLETE,
-    NODE_QUERIES_COMPLETE,
-    AWAKE_NODES_QUERIED,
-    ALL_NODES_QUERIED_SOME_DEAD,
-    ALL_NODES_QUERIED,
-    NOTIFICATION
+public class NodeData {
+
+    public var sentCnt: Long = 0
+    public var sentFailed: Long = 0
+    public var retries: Long = 0
+    public var receivedCnt: Long = 0
+    public var receivedDups: Long = 0
+    public var receivedUnsolicited: Long = 0
+    public var sentTs: String? = null
+    public var receivedTs: String? = null
+    public var lastRequestRtt: Long = 0
+    public var averageRequestRtt: Long = 0
+    public var lastResponseRtt: Long = 0
+    public var averageResponseRtt: Long = 0
+    public var quality: Short = 0
+    public val lastReceivedMessage: ShortArray = ShortArray(254)
+    public val ccData: List<CommandClassData> = ArrayList()
 }

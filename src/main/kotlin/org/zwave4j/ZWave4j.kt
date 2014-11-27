@@ -19,15 +19,11 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
 
 /**
  * @author zagumennikov
  */
-public enum ValueGenre {
-    BASIC,
-    USER,
-    CONFIG,
-    SYSTEM,
-    COUNT
+public object ZWave4j {
+    public val LIBRARY_NAME: String = "zwave4j"
 }

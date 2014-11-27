@@ -24,4 +24,12 @@ package org.zwave4j
 /**
  * @author zagumennikov
  */
-public class ValueId(public val homeId: Long, public val nodeId: Short, public val genre: ValueGenre, public val commandClassId: Short, public val instance: Short, public val index: Short, public val type: ValueType)
+public class ValueId(
+        public val homeId: Long,
+        public val nodeId: Short,
+        public val genre: ValueGenre,
+        public val commandClassId: Short,
+        public val instance: Short,
+        public val index: Short,
+        public val type: ValueType
+)

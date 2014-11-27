@@ -27,7 +27,6 @@ import java.util.ArrayList
  * @author zagumennikov
  */
 public class NodeData {
-
     public var sentCnt: Long = 0
     public var sentFailed: Long = 0
     public var retries: Long = 0

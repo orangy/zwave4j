@@ -21,3 +21,9 @@
 
 package org.zwave4j
 
+/**
+ * @author zagumennikov
+ */
+public trait ControllerCallback {
+    public fun onCallback(state: ControllerState, err: ControllerError, context: Any?)
+}

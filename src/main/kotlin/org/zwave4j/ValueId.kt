@@ -21,6 +21,8 @@
 
 package org.zwave4j
 
+import java.util.concurrent.atomic.AtomicReference
+
 /**
  * @author zagumennikov
  */
@@ -32,4 +34,50 @@ public class ValueId(
         public val instance: Short,
         public val index: Short,
         public val type: ValueType
-)
+) {
+
+    public fun getValue(): Any? {
+        when (type) {
+            ValueType.BOOL -> {
+                val b = AtomicReference<Boolean>()
+                Manager.get().getValueAsBool(this, b)
+                return b.get()
+            }
+            ValueType.BYTE -> {
+                val bb = AtomicReference<Short>()
+                Manager.get().getValueAsByte(this, bb)
+                return bb.get()
+            }
+            ValueType.DECIMAL -> {
+                val f = AtomicReference<Float>()
+                Manager.get().getValueAsFloat(this, f)
+                return f.get()
+            }
+            ValueType.INT -> {
+                val i = AtomicReference<Int>()
+                Manager.get().getValueAsInt(this, i)
+                return i.get()
+            }
+            ValueType.LIST -> return null
+            ValueType.SCHEDULE -> return null
+            ValueType.SHORT -> {
+                val s = AtomicReference<Short>()
+                Manager.get().getValueAsShort(this, s)
+                return s.get()
+            }
+            ValueType.STRING -> {
+                val ss = AtomicReference<String>()
+                Manager.get().getValueAsString(this, ss)
+                return ss.get()
+            }
+            ValueType.BUTTON -> return null
+            ValueType.RAW -> {
+                val sss = AtomicReference<ShortArray>()
+                Manager.get().getValueAsRaw(this, sss)
+                return sss.get()
+            }
+            else -> return null
+        }
+    }
+
+}

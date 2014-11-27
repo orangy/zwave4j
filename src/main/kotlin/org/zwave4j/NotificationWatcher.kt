@@ -19,12 +19,11 @@
  * along with ZWave4J.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.zwave4j;
+package org.zwave4j
 
 /**
  * @author zagumennikov
  */
-public interface ControllerCallback {
-
-    void onCallback(ControllerState state, ControllerError err, Object context);
+public trait NotificationWatcher {
+    public fun onNotification(notification: Notification, context: Any?)
 }

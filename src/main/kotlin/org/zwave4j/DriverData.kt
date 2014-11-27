@@ -25,7 +25,6 @@ package org.zwave4j
  * @author zagumennikov
  */
 public class DriverData {
-
     public var sofCnt: Long = 0
     public var ackWaiting: Long = 0
     public var readAborts: Long = 0
